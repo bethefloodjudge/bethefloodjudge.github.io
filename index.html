@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Gambling with floods</title>
+<style>
+body {
+	font-family:arial;
+	padding:20px;
+	background-image: url('images/background2.png');
+}
+
+.reelscontainer {
+	margin:0 auto;
+	float:left;
+	width:900px;
+}
+	
+.rescontainer {
+	margin:0 auto;
+	float:right;
+	width:300px;
+}
+
+.expcontainer {
+ 	margin:0 auto;
+        float:middle;
+        width:500px;
+}
+	
+.button1 {
+        float:left;
+	background-color:#f44336;
+  	border: none;
+  	color: white;
+  	padding: 10px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 24px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.button2 {
+        float:right;
+        border: 5px;
+	background-color:#4CAF50;
+	color: white;
+  	padding: 10px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 24px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.button3 {
+	float:left;
+	border: 5px;
+	background-color:#e7e7e7;;
+	color: white;
+  	padding: 10px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 24px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+	
+.clear {
+	clear:both;
+}
+	
+.disclaim {
+	font-size: 10px; color: black;
+}
+	
+</style>
+
+</head>
+<body>
+	<h1 style="color:white;text-align:center;">Be the flood judge</h1>
+	<h3 style="color:white;text-align:center;">
+		Click on <i><b>start</i></b> to spin the reels of ground, weather and river conditions.<br>
+		See where they stop and guess the likely outcome. Click on <i><b>check</i></b> to see if you were right!<br>
+		Maybe you were right, maybe not - click on <i><b>explain</i></b> to discover why<br>
+	</h3>
+	<table style"width:100%">
+	<tr><td>
+		<video id="vid-reels" width=800 height=400 poster="images/poster-reels.jpg" type="video/mp4" > </video>
+		<video id="vid-res"   width=266 height=400 poster="images/poster-res.jpg" type="video/mp4"> </video>
+	</td></tr>
+	<tr><td>
+		<div class="button1">  <button onclick="playReels()">Start</button></div>
+		<div class="button2">  <button onclick="playRes()"  >Check</button></div>
+	</td></tr>
+	<tr><td>
+		<div class="button3">  <button onclick="playExp()" >3: Explain</button></div>
+	</td></tr>
+	<tr><td>
+		<video width="640" height="480" id="vid-explain" poster="images/Flood-banner-3.jpg" type="video/mp4"> </video> 
+	</td></tr>
+
+	</table>
+
+<div class="disclaim">
+All reasonable care has been taken that information published on the Be the Flood Judge website is correct at the time of publishing. However, Be the Flood Judge the does not guarantee the accuracy of the information published on its website nor can it be held responsible for any errors or omissions.
+Be the Flood Judge will not be held liable for any loss, damage or expense as a result of delays, variations or failure in the provision of services, facilities arising from circumstances beyond the Programme’s reasonable control, including, without limitation, any of the following: act of God, governmental act, industrial action, strikes, lockouts, fire, flood, earthquake, bad weather conditions, explosion, civil commotion, war, terrorist attack, technical failure, or power failure.
+The website contains links to third party websites hosted by information providers who are not affiliated with the Programme. These links serve as a reference for further information and do not signify that the Programme endorses such websites or their content. The Programme cannot confirm the accuracy or reliability of any of the material contained in such third party websites nor shall it be held liable for any loss or damage suffered as a result of using third party sites or the information contained therein. Furthermore, the Programme does not make any representations or warranties as to the security of any information you may be requested to give to any third party.
+</div>
+
+<script>
+	var reelsVid = document.getElementById("vid-reels");
+	var resVid   = document.getElementById("vid-res");
+	var expVid   = document.getElementById("vid-explain");
+	
+	var reelsSrc = document.createElement('source');
+	var resSrc   = document.createElement('source');
+	var expSrc   = document.createElement('source');
+
+        var randreels=1;
+	var reelsanim;
+	var resanim;
+	var outcomeanim;
+	
+	var ftt1 = 1; var ftt2 = 1; var ftt3 = 1;
+
+	function playReels() {
+                randreels = Math.round(Math.random()*27);
+		reelsanim="videos/reels"+parseInt(randreels)+".mp4";
+		resanim="videos/resreels1.mp4";
+		// outcomes 1-5 == no flood
+		// outcomes 6 - 12 == flood
+		// outcomes 13 - 18 == ???
+                switch (randreels) {
+                case 1:
+                  outcomeanim="videos/outcome11.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 2:
+                  outcomeanim="videos/outcome09.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 3:
+                  outcomeanim="videos/outcome08.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 4:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 5:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 6:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 7:
+                  outcomeanim="videos/outcome08.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 8:
+                  outcomeanim="videos/outcome17.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 9:
+                  outcomeanim="videos/outcome18.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 10:
+                  outcomeanim="videos/outcome12.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 11:
+                  outcomeanim="videos/outcome15.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 12:
+                  outcomeanim="videos/outcome18.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 13:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 14:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 15:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 16:
+                  outcomeanim="videos/outcome13.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 17:
+                  outcomeanim="videos/outcome03.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 18:
+                  outcomeanim="videos/outcome05.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 19:
+                  outcomeanim="videos/outcome07.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 20:
+                  outcomeanim="videos/outcome15.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 21:
+                  outcomeanim="videos/outcome06.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 22:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 23:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 24:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 25:
+                  outcomeanim="videos/outcome14.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 26:
+                  outcomeanim="videos/outcome02.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 27:
+                  outcomeanim="videos/outcome04.mp4";resanim="videos/resreels2.mp4";
+                  break;
+		}
+
+		if (ftt1) { ftt1=0; reelsVid.appendChild(reelsSrc);}
+		reelsSrc.setAttribute('src',reelsanim);
+		reelsVid.load();
+		reelsVid.play();
+	}
+	
+	function playRes() {
+		if (ftt2) { ftt2=0; resVid.appendChild(resSrc); }
+		resSrc.setAttribute('src',resanim);
+		resVid.load();
+		resVid.play();
+	}	
+
+	function playExp() {
+		if (ftt3) { ftt3=0; expVid.appendChild(expSrc); }
+		expSrc.setAttribute('src',outcomeanim);
+		expVid.load();
+		expVid.play();
+	}	
+</script>
+
+</body>
+</html>
