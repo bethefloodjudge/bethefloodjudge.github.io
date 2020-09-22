@@ -80,11 +80,20 @@ body {
 		<button class="button button1" onclick="playReels()">START</button>
 		<button class="button button2" onclick="playRes()"  >CHECK</button>
 	</td></tr>
+	<tr><td>		
+	<form action="/action_page.php"> 
+  <p>Select your flood prediction:</p>
+  <input type="radio" id="pred1" name="pred" value="Flood">
+  <label for="pred1">Flood</label><br>
+  <input type="radio" id="pred2" name="pred" value="No flood">
+  <label for="pred2">No flood</label><br>  
+  <input type="submit" value="Submit">
+</form>
+		</td></tr>
 	<tr><td>
 		<button class="button button3" onclick="playExp()" >EXPLAIN</button>
 		<video width="640" height="480" id="vid-explain" poster="images/Flood-banner-3.jpg" type="video/mp4"> </video> 
 	</td></tr>
-
 	</table>
 
 <div class="disclaim">
