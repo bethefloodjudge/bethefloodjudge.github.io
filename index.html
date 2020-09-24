@@ -48,7 +48,12 @@ body {
 
 .button2 {
         float:left;
-	background-color:#4CAF50;
+	background-color:blue;
+}
+	
+.button3 {
+        float:left;
+	background-color:brown;
 }
 
 .button3 {
@@ -68,7 +73,7 @@ body {
 	<h1 style="color:white;text-align:center;">Be the flood judge</h1>
 	<h3 style="color:white;text-align:center;">
 		Click on <i><b>start</i></b> to spin the reels of ground, weather and river conditions.<br>
-		See where they stop and guess the likely outcome. Click on <i><b>check</i></b> to see if you were right!<br>
+		See where they stop and guess the likely outcome by clicking on <i><b>FLOOD</i></b> or <i><b>NO FLOOD</i></b> to see the outcome.<br>
 		Maybe you were right, maybe not. Click on <i><b>explain</i></b> to discover why.<br>
 	</h3>
 	<table style"width:100%">
@@ -79,18 +84,12 @@ body {
 		<video id="vid-reels" width=800 height=400 poster="images/poster-reels.jpg" type="video/mp4" > </video>
 	</td></tr>
 	<tr><td>		
-	<form action="/action_page.php"> 
-  <p style="color:white;">Choose your flood prediction:</p>
-  <input type="radio" id="pred1" name="pred" value="Flood">
-  <label for="pred1" style="color:white;">Flood</label><br>
-  <input type="radio" id="pred2" name="pred" value="No flood">
-  <label for="pred2" style="color:white;">No flood</label><br>  
-</form>
-		<button class="button button2" onclick="playRes()"  >CHECK</button>
+		<button class="button button2" onclick="playRes()"  > FLOOD! </button>
+		<button class="button button3" onclick="playRes()"  >NO FLOOD</button>
 		<video id="vid-res"   width=266 height=400 poster="images/poster-res.jpg" type="video/mp4"> </video>
 		</td></tr>
 	<tr><td>
-		<button class="button button3" onclick="playExp()" >EXPLAIN</button>
+		<button class="button button4" onclick="playExp()" >EXPLAIN</button>
 		<video width="640" height="480" id="vid-explain" poster="images/Flood-banner-3.jpg" type="video/mp4"> </video> 
 	</td></tr>
 	</table>
