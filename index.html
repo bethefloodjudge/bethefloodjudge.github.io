@@ -35,7 +35,7 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
+  font-size: 20px;
   margin: 4px 2px;
   border-radius: 50%;
   cursor: pointer;
@@ -76,7 +76,7 @@ body {
 		Can you predict if the river will burst its banks and cause a flood ?<br>
 		See where the reels stop and make your prediction by clicking on <i><b>FLOOD</i></b> or <i><b>NO FLOOD</i></b>.<br>
 		The result reel will spin to show the actual outcome.<br>
-		Maybe you were right, maybe not. Click on <i><b>explain</i></b> to discover why.<br>
+		Maybe you were right, maybe not. Click on <i><b>why?</i></b> to discover why.<br>
 	</h3>
 	<table style"width:100%">
 	<tr><td>
@@ -86,12 +86,12 @@ body {
 		<video id="vid-reels" width=800 height=400 poster="images/poster-reels.jpg" type="video/mp4" > </video>
 	</td></tr>
 	<tr><td>		
-		<button class="button button2" onclick="playRes()"  > FLOOD! </button>
+		<button class="button button2" onclick="playRes()"  ><sp>FLOOD!<sp></button>
 		<button class="button button3" onclick="playRes()"  >NO FLOOD</button>
 		<video id="vid-res"   width=266 height=400 poster="images/poster-res.jpg" type="video/mp4"> </video>
-		</td></tr>
+	</td></tr>
 	<tr><td>
-		<button class="button button4" onclick="playExp()" >EXPLAIN</button>
+		<button class="button button4" onclick="playExp()" >WHY?</button>
 		<video width="640" height="480" id="vid-explain" poster="images/Flood-banner-3.jpg" type="video/mp4"> </video> 
 	</td></tr>
 	</table>
