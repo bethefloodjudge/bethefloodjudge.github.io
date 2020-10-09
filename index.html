@@ -116,10 +116,13 @@ The website contains links to third party websites hosted by information provide
 	var resanim;
 	var outcomeanim;
 	
-	var ftt1 = 1; var ftt2 = 1; var ftt3 = 1;
+	var ftt1 = 1; var ftt2 = 1; var ftt3 = 1; var numspins = 0;
 
 	function playReels() {
                 randreels = Math.round(Math.random()*27);
+		numspins++; 
+		// If fourth spin choose easteregg animation
+		if (numspins == 4) { randreels=2; }
 		reelsanim="videos/reels"+parseInt(randreels)+".mp4";
 		resanim="videos/resreels1.mp4";
 		// outcomes 1-5 == no flood
