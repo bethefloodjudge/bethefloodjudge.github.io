@@ -149,6 +149,7 @@ body {
                 randreels = Math.round(Math.random()*27);
 		numspins++; 
 		// If fourth spin choose easteregg animation
+		if (numspins == 1) { randreels=11; }
 		if (numspins == 4) { randreels=2; }
 		reelsanim="videos/reels"+parseInt(randreels)+".mp4";
 		resanim="videos/resreels1.mp4";
